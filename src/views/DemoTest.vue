@@ -1,5 +1,5 @@
 <template>
-  <wallpaper color="208,233,242" type="snow">
+  <wallpaper type="snow" color="208,233,242" :bg-img="WallpaperImage.BACKGROUND_THREE">
 
     <el-form class="login-container" label-position="left" label-width="0px">
       <h3 class="login_title">Demo Test</h3>
@@ -18,11 +18,13 @@
 import { defineComponent } from "vue";
 import Wallpaper from "@/components/Wallpaper.vue";
 import { DemoTestService } from "@/common/service/DemoTestService";
+import { WallpaperImage } from "@/common/pojo/po/WallpaperImage";
 
 export default defineComponent({
   name: "DemoTest",
   data() {
     return {
+      WallpaperImage: WallpaperImage,
       demoTestService: new DemoTestService(this)
     }
   },
