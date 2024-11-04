@@ -9,7 +9,6 @@ import { GenUtil } from "@/common/util/GenUtil";
 import QuillToggleFullscreenButton from 'quill-toggle-fullscreen-button';
 import { LogUtil } from "../util/LogUtil";
 import { Log } from "../pojo/dto/Log";
-import { RichTextHtml } from "../pojo/po/RichTextHtml";
 // @ts-ignore
 import ImageUploader from "quill-image-uploader";
 // @ts-ignore
@@ -239,7 +238,7 @@ export class RichTextEditPlusService extends CommonService<RichTextEditPlusServi
     }
 
     private async getRtContent(): Promise<string> {
-        if (this._richTextPath.path.length === 0) return RichTextHtml.TEST;
+        if (this._richTextPath.path.length === 0) return await this.getRichTextHtml();
         if (this.routerName === 'sharePlus' || this.routerName === 'test') {
             try {
                 return await this.pathController.view(this._richTextPath.path);
@@ -255,6 +254,11 @@ export class RichTextEditPlusService extends CommonService<RichTextEditPlusServi
             return "";
         }
         return responseData.data;
+    }
+
+    private async getRichTextHtml(): Promise<string> {
+        let path = "overlay/data/MyCodes/RichText/quill/test.html";
+        return this.pathController.view(path);
     }
 
     private getModules(): Array<Module> {
@@ -308,7 +312,14 @@ export class RichTextEditPlusService extends CommonService<RichTextEditPlusServi
     }
 
     public closeRichText(): void {
-        if (this.routerName === 'test' || this.routerName === 'sharePlus') {
+        if (this.routerName === 'test') {
+            this._rtContent = "";
+            this._visible = false;
+            this.initFlag = false;
+            return;
+        }
+
+        if (this.routerName === 'sharePlus') {
             this._screen = "fit";
             this.initData();
             return;
