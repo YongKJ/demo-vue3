@@ -16,8 +16,6 @@ import TableHandler, { rewirteFormats } from 'quill1.3.7-table-module';
 // @ts-ignore
 import BlotFormatter from 'quill-blot-formatter';
 
-Quill.register({ [`modules/${TableHandler.moduleName}`]: TableHandler }, true);
-rewirteFormats();
 
 export class RichTextEditPlusService extends CommonService<RichTextEditPlusService> {
 
@@ -59,6 +57,7 @@ export class RichTextEditPlusService extends CommonService<RichTextEditPlusServi
     public async initData(): Promise<void> {
         if (this._screen === "fit") {
             this.vue.$nextTick(() => {
+                rewirteFormats();
                 let quillContainer = <HTMLElement>document.getElementsByClassName("ql-container")[0];
                 if (typeof quillContainer !== "undefined") {
                     quillContainer.setAttribute("style", "height: 750px;width: 100%;border: unset;");
@@ -293,7 +292,7 @@ export class RichTextEditPlusService extends CommonService<RichTextEditPlusServi
                 options: true
             },
             {
-                name: `${TableHandler.moduleName}`,
+                name: TableHandler.moduleName,
                 module: TableHandler,
                 options: {
                     fullWidth: true,
