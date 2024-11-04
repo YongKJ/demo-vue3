@@ -95,7 +95,7 @@ export class RichTextEditPlusService extends CommonService<RichTextEditPlusServi
             },
         }
         if (this._mode === "read") {
-            option.readOnly = true;
+            // option.readOnly = true;
             option.placeholder = "";
         }
         return option;
