@@ -16,6 +16,9 @@ import TableHandler, { rewirteFormats } from 'quill1.3.7-table-module';
 // @ts-ignore
 import BlotFormatter from 'quill-blot-formatter';
 
+Quill.register({ [`modules/${TableHandler.moduleName}`]: TableHandler }, true);
+rewirteFormats();
+
 export class RichTextEditPlusService extends CommonService<RichTextEditPlusService> {
 
     private _top: number;
@@ -56,9 +59,6 @@ export class RichTextEditPlusService extends CommonService<RichTextEditPlusServi
     public async initData(): Promise<void> {
         if (this._screen === "fit") {
             this.vue.$nextTick(() => {
-                Quill.register({ [`modules/${TableHandler.moduleName}`]: TableHandler }, true);
-                rewirteFormats();
-
                 let quillContainer = <HTMLElement>document.getElementsByClassName("ql-container")[0];
                 if (typeof quillContainer !== "undefined") {
                     quillContainer.setAttribute("style", "height: 750px;width: 100%;border: unset;");
@@ -86,7 +86,14 @@ export class RichTextEditPlusService extends CommonService<RichTextEditPlusServi
         let option = {
             theme: 'snow',
             readOnly: false,
-            placeholder: "请输入内容..."
+            placeholder: "请输入内容...",
+            modules: {
+                keyboard: {
+                    bindings: {
+                        ...TableHandler.keyboradHandler,
+                    },
+                },
+            },
         }
         if (this._mode === "read") {
             option.readOnly = true;
@@ -100,6 +107,11 @@ export class RichTextEditPlusService extends CommonService<RichTextEditPlusServi
             theme: 'snow',
             modules: {
                 toolbar: false,
+                keyboard: {
+                    bindings: {
+                        ...TableHandler.keyboradHandler,
+                    },
+                },
             },
             readOnly: true
         }
