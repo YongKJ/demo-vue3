@@ -36,46 +36,6 @@ export default defineComponent({
 </script>
 
 <style scoped>
-:deep(.el-input--large .el-input__wrapper) {
-  padding: 1px 0;
-}
-
-:deep(.el-input__inner) {
-  padding: 0 15px;
-  border-radius: 4px;
-}
-
-.avatar-uploader-icon-computer {
-  font-size: 70px;
-  color: #C0C4CC;
-  position: relative;
-  top: 8px;
-  text-align: center;
-}
-
-:deep(.el-upload) {
-  --el-upload-dragger-padding-horizontal: 26.5px;
-  --el-upload-dragger-padding-vertical: 10px;
-}
-
-/deep/ .el-upload-list__item-name:hover {
-  color: #606266;
-}
-
-/deep/ .el-upload-list__item-name {
-  color: white;
-}
-
-/deep/ .el-upload-dragger {
-  width: 330px;
-}
-
-.button {
-  width: 100px;
-  height: 20px;
-  position: relative;
-}
-
 .login-container {
   width: 402px;
   margin: 90px auto;
@@ -100,18 +60,13 @@ export default defineComponent({
 .button-border {
   width: 100%;
   background: rgba(45, 45, 45, 0.33);
-  /*   border: none; */
   border: 1px solid #40E0D0;
-  /*   box-shadow: 0 0 25px rgba(155,89,182,.5); */
-  /*   box-shadow: 0 0 25px rgba(64,224,208,.5); */
 }
 
 .button-border:hover {
   width: 100%;
   background: rgba(45, 45, 45, 0.33);
-  /*   border: none; */
   border: 1px solid #40E0D0;
-  /*   box-shadow: 0 0 25px rgba(155,89,182,.5); */
   box-shadow: 0 0 25px rgba(64, 224, 208, .5);
 }
 
