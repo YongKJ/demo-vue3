@@ -1,8 +1,15 @@
 <template>
   <wallpaper color="208,233,242" type="snow">
-    <el-button style="position: relative" @click="demoTestService.test()">
-      终端实时通信测试
-    </el-button>
+
+    <el-form class="login-container" label-position="left" label-width="0px">
+      <h3 class="login_title">Demo Test</h3>
+
+      <el-form-item style="width: 100%">
+        <el-button type="primary" class="button-border" @click="demoTestService.test()">
+          Quill@1.3.7 Demo
+        </el-button>
+      </el-form-item>
+    </el-form>
 
   </wallpaper>
 </template>

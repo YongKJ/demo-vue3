@@ -1,0 +1,11 @@
+.el-message {
+    min-width: 380px;
+}
+
+.el-message-box {
+    vertical-align: unset !important;
+}
+
+.el-overlay.is-message-box .el-overlay-message-box {
+    top: 15% !important;
+}

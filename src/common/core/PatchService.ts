@@ -4,6 +4,7 @@ import { WallpaperService } from "@/common/service/WallpaperService";
 import { Class } from "@/common/pojo/enum/Class";
 import { DemoTestService } from "@/common/service/DemoTestService";
 import { VueParticlesService } from "@/common/service/VueParticlesService";
+import { RouterService } from "./RouterService";
 
 export abstract class PatchService extends RouterService {
 

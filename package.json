@@ -27,6 +27,7 @@
     "lodash-es": "^4.17.21",
     "nprogress": "^0.2.0",
     "orbit-encoder": "^2.1.0",
+    "particles.js-strict": "^2.0.2",
     "process": "^0.11.10",
     "qs": "^6.13.0",
     "quill-blot-formatter": "^1.0.5",
