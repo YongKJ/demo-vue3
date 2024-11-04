@@ -12,8 +12,10 @@ export class DemoTestService extends CommonService<DemoTestService> {
 
     }
 
-    public test(): void {
-
+    public quillDemo(): void {
+        this.richTextEditPlusService.screen = "full";
+        this.richTextEditPlusService.mode = "read";
+        this.richTextEditPlusService.visible = true;
     }
 
     protected getClassName(): string {

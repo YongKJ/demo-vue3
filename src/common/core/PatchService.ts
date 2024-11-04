@@ -5,6 +5,7 @@ import { Class } from "@/common/pojo/enum/Class";
 import { DemoTestService } from "@/common/service/DemoTestService";
 import { VueParticlesService } from "@/common/service/VueParticlesService";
 import { RouterService } from "./RouterService";
+import { RichTextEditPlusService } from "../service/RichTextEditPlusService";
 
 export abstract class PatchService extends RouterService {
 
@@ -24,6 +25,10 @@ export abstract class PatchService extends RouterService {
 
     get demoTestService(): DemoTestService {
         return this.getService(Class.DemoTestService);
+    }
+
+    get richTextEditPlusService(): RichTextEditPlusService {
+        return this.getService(Class.RichTextEditPlusService);
     }
 
 }

@@ -5,12 +5,13 @@
       <h3 class="login_title">Demo Test</h3>
 
       <el-form-item style="width: 100%">
-        <el-button type="primary" class="button-border" @click="demoTestService.test()">
+        <el-button type="primary" class="button-border" @click="demoTestService.quillDemo()">
           Quill@1.3.7 Demo
         </el-button>
       </el-form-item>
     </el-form>
 
+    <rich-text-edit-plus />
   </wallpaper>
 </template>
 
@@ -19,6 +20,7 @@ import { defineComponent } from "vue";
 import Wallpaper from "@/components/Wallpaper.vue";
 import { DemoTestService } from "@/common/service/DemoTestService";
 import { WallpaperImage } from "@/common/pojo/po/WallpaperImage";
+import RichTextEditPlus from "@/components/RichTextEditPlus.vue";
 
 export default defineComponent({
   name: "DemoTest",
@@ -33,6 +35,7 @@ export default defineComponent({
   },
   components: {
     Wallpaper,
+    RichTextEditPlus,
   }
 });
 </script>

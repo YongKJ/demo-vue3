@@ -4,6 +4,8 @@ import {Log} from "@/common/pojo/dto/Log";
 import {OrbitEncoder} from "orbit-encoder/lib/OrbitEncoder";
 import * as DateTimeUtil from "date-fns";
 import crypto from "crypto-js";
+import { Path } from "../api/pojo/po/Path";
+import { Global } from "../config/Global";
 
 export class GenUtil {
 
@@ -142,6 +144,21 @@ export class GenUtil {
             let mapData = this.getUrlParams(urls);
             return typeof mapData.get(key) === "undefined" ? "" : GenUtil.getDeCode(mapData.get(key));
         }
+    }
+
+    public static getPathUrl(paths: Path | Array<Path>): string | Array<string> {
+        if (paths instanceof Array) {
+            let pathUrls = new Array<string>();
+            for (let path of paths) {
+                pathUrls.push(GenUtil.getViewUrl(path));
+            }
+            return pathUrls;
+        } else {
+            return GenUtil.getViewUrl(paths);
+        }
+    }
+    public static getViewUrl(path: Path): string {
+        return Global.BASE_URL + "/path/view?path=" + GenUtil.getEnCode(path.path);
     }
 
     public static getUrlParams(url: string): Map<string, any> {

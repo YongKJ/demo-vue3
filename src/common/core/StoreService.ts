@@ -27,4 +27,12 @@ export abstract class StoreService extends ApiService {
         return isLocalHostName;
     }
 
+    get accessToken(): string {
+        return StoreService.mapData.get("accessToken") || "";
+    }
+
+    set accessToken(accessToken: string) {
+        StoreService.mapData.set("accessToken", accessToken);
+    }
+
 }
