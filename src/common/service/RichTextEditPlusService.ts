@@ -316,8 +316,7 @@ export class RichTextEditPlusService extends CommonService<RichTextEditPlusServi
             [{ color: [] }, { background: [] }],
             [{ font: [] }],
             [{ align: [] }],
-            ['link', 'image', 'video'],
-            [TableHandler.toolName],
+            ['link', 'image', 'video', { table: [] }],
             ['clean']
         ];
     }
