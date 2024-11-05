@@ -32,6 +32,7 @@ export class RichTextEditPlusService extends CommonService<RichTextEditPlusServi
     private _richTextPath: Path;
     private editor: Quill | null;
     private viewer: Quill | null;
+    private readonly screenHeight: number;
     private readonly _modules: Array<Module>;
     private readonly _toolbarOption: Array<Array<any>>;
 
@@ -51,6 +52,7 @@ export class RichTextEditPlusService extends CommonService<RichTextEditPlusServi
         this._modules = this.getModules();
         this._width = document.documentElement.clientWidth - 40;
         this._height = document.documentElement.clientHeight - 88;
+        this.screenHeight = document.documentElement.clientHeight;
         this._toolbarOption = RichTextEditPlusService.getToolbarOption();
     }
 
@@ -185,12 +187,21 @@ export class RichTextEditPlusService extends CommonService<RichTextEditPlusServi
             return;
         }
 
-        let containerHeightStr = this._height - this.getToolbarHeight() + "px";
+        let containerHeightStr = (this.isFullscreen() ? this.screenHeight : this._height) - this.getToolbarHeight() + "px";
         quillContainer.setAttribute("style", "height: " + containerHeightStr + ";width: 100%;overflow: auto");
 
         LogUtil.loggerLine(Log.of("RichTextEditPlusLatestService", "changeQuillContainerHeight", "quillContainerStyleStr", quillContainerStyleStr));
         LogUtil.loggerLine(Log.of("RichTextEditPlusLatestService", "changeQuillContainerHeight", "containerHeightStr", containerHeightStr));
         console.log("-----------------------------------------------------------------------------------------------------------------------------------------");
+    }
+
+    private isFullscreen(): boolean {
+        let fullscreenContainer = <HTMLElement>document.getElementsByClassName("is-fullscreen")[0];
+        let flag = typeof fullscreenContainer !== "undefined";
+
+        LogUtil.loggerLine(Log.of("RichTextEditPlusLatestService", "isFullscreen", "flag", flag));
+
+        return flag;
     }
 
     private fullScreenScreenHeight(): number {
