@@ -71,7 +71,7 @@ export class RichTextEditPlusService extends CommonService<RichTextEditPlusServi
                 }
             });
         } else {
-            if (this._mode === 'read' && !this.initFlag) {
+            if (this._mode === 'read' || !this.initFlag) {
                 this.vue.$nextTick(() => {
                     this.monitorQuillContainerSize();
                     this.initFlag = true;
