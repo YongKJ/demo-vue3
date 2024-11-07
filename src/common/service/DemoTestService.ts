@@ -18,6 +18,12 @@ export class DemoTestService extends CommonService<DemoTestService> {
         this.richTextEditPlusService.visible = true;
     }
 
+    public vditorDemo(): void {
+        this.markdownEditPlusService.screen = "full";
+        this.markdownEditPlusService.mode = "read";
+        this.markdownEditPlusService.visible = true;
+    }
+
     protected getClassName(): string {
         return Class.DemoTestService;
     }

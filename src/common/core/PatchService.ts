@@ -6,6 +6,7 @@ import { DemoTestService } from "@/common/service/DemoTestService";
 import { VueParticlesService } from "@/common/service/VueParticlesService";
 import { RouterService } from "./RouterService";
 import { RichTextEditPlusService } from "../service/RichTextEditPlusService";
+import { MarkdownEditPlusService } from "../service/MarkdownEditPlusService";
 
 export abstract class PatchService extends RouterService {
 
@@ -29,6 +30,10 @@ export abstract class PatchService extends RouterService {
 
     get richTextEditPlusService(): RichTextEditPlusService {
         return this.getService(Class.RichTextEditPlusService);
+    }
+
+    get markdownEditPlusService(): MarkdownEditPlusService {
+        return this.getService(Class.MarkdownEditPlusService);
     }
 
 }

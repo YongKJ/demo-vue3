@@ -4,5 +4,6 @@ export enum Class {
     WallpaperService = "WallpaperService",
     VueParticlesService = "VueParticlesService",
     RichTextEditPlusService = "RichTextEditPlusService",
+    MarkdownEditPlusService = "MarkdownEditPlusService",
 
 }

@@ -9,9 +9,16 @@
           Quill@1.3.7 Demo
         </el-button>
       </el-form-item>
+
+      <el-form-item style="width: 100%">
+        <el-button type="primary" class="button-border-red" @click="demoTestService.vditorDemo()">
+          Vditor@3.10.7 Demo
+        </el-button>
+      </el-form-item>
     </el-form>
 
     <rich-text-edit-plus />
+    <markdown-edit-plus />
   </wallpaper>
 </template>
 
@@ -21,6 +28,7 @@ import Wallpaper from "@/components/Wallpaper.vue";
 import { DemoTestService } from "@/common/service/DemoTestService";
 import { WallpaperImage } from "@/common/pojo/po/WallpaperImage";
 import RichTextEditPlus from "@/components/RichTextEditPlus.vue";
+import MarkdownEditPlus from "@/components/MarkdownEditPlus.vue";
 
 export default defineComponent({
   name: "DemoTest",
@@ -36,6 +44,7 @@ export default defineComponent({
   components: {
     Wallpaper,
     RichTextEditPlus,
+    MarkdownEditPlus,
   }
 });
 </script>
