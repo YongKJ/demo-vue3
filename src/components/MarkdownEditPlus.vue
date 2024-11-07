@@ -62,6 +62,18 @@ export default defineComponent({
 <style scoped>
 @import "../assets/css/MarkdownEditPlus.css";
 
+:deep(.hljs::-webkit-scrollbar-thumb) {
+  background-color: #b7b7b7;
+  border-radius: 4px;
+}
+
+:deep(.hljs::-webkit-scrollbar) {
+  width: 10px;
+  height: 10px;
+  border-radius: 4px;
+  background-color: #e5e5e5;
+}
+
 :deep(.vditor-reset::-webkit-scrollbar-thumb) {
   background-color: #b7b7b7;
   border-radius: 4px;
@@ -70,6 +82,7 @@ export default defineComponent({
 :deep(.vditor-reset::-webkit-scrollbar) {
   width: 10px;
   height: 10px;
+  border-radius: 4px;
   background-color: #e5e5e5;
 }
 
