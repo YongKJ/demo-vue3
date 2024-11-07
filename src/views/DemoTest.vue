@@ -17,8 +17,8 @@
       </el-form-item>
     </el-form>
 
-    <rich-text-edit-plus />
-    <markdown-edit-plus />
+    <markdown-edit-plus v-if="demoTestService.markdownEditPlusVisible" />
+    <rich-text-edit-plus v-if="demoTestService.richTextEditPlusVisible" />
   </wallpaper>
 </template>
 
