@@ -78,7 +78,7 @@ export class MarkdownEditPlusService extends CommonService<MarkdownEditPlusServi
                 },
                 hljs: {
                     enable: true,
-                    style: "solarized-dark",
+                    style: "base16/solarized-dark",
                     lineNumber: true
                 },
                 math: {
@@ -128,7 +128,7 @@ export class MarkdownEditPlusService extends CommonService<MarkdownEditPlusServi
                 hljs: {
                     enable: true,
                     lineNumber: true,
-                    style: "solarized-dark"
+                    style: "base16/solarized-dark"
                 },
                 math: {
                     engine: "MathJax",
