@@ -3,6 +3,7 @@ import EventEmitter2 from "eventemitter2";
 import {ComponentPublicInstance} from "vue";
 import {Class} from "@/common/pojo/enum/Class";
 import {GeneralService} from "@/common/core/GeneralService";
+import { GenUtil } from "../util/GenUtil";
 
 export abstract class CommonService<U> extends GeneralService implements BaseService<U> {
 
@@ -44,6 +45,18 @@ export abstract class CommonService<U> extends GeneralService implements BaseSer
         let serviceName = this.getServiceName(className);
         let vue = this.getVue(serviceName, index || 0);
         return (<Record<string, any>>vue)[serviceName];
+    }
+
+    public async serviceAwait<T extends CommonService<any>>(clazz: Class | (new (vue: ComponentPublicInstance) => T), index?: number): Promise<void> {
+        while (!this.hasService(clazz, index)) {
+            await GenUtil.sleep(100);
+        }
+    }
+
+    public async refAwait(name: string): Promise<void> {
+        while (typeof this.getRef(name) === "undefined") {
+            await GenUtil.sleep(100);
+        }
     }
 
     get service(): U {

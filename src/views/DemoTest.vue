@@ -17,18 +17,23 @@
       </el-form-item>
     </el-form>
 
-    <markdown-edit-plus v-if="demoTestService.markdownEditPlusVisible" />
-    <rich-text-edit-plus v-if="demoTestService.richTextEditPlusVisible" />
+    <Suspense>
+      <div>
+        <markdown-edit-plus v-if="demoTestService.markdownEditPlusVisible" />
+        <rich-text-edit-plus v-if="demoTestService.richTextEditPlusVisible" />
+      </div>
+    </Suspense>
   </wallpaper>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineAsyncComponent, defineComponent } from "vue";
 import Wallpaper from "@/components/Wallpaper.vue";
 import { DemoTestService } from "@/common/service/DemoTestService";
 import { WallpaperImage } from "@/common/pojo/po/WallpaperImage";
-import RichTextEditPlus from "@/components/RichTextEditPlus.vue";
-import MarkdownEditPlus from "@/components/MarkdownEditPlus.vue";
+
+const RichTextEditPlus = defineAsyncComponent(() => import('@/components/RichTextEditPlus.vue'));
+const MarkdownEditPlus = defineAsyncComponent(() => import('@/components/MarkdownEditPlus.vue'));
 
 export default defineComponent({
   name: "DemoTest",

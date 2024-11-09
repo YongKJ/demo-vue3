@@ -19,7 +19,9 @@ export class DemoTestService extends CommonService<DemoTestService> {
 
     public quillDemo(): void {
         this._richTextEditPlusVisible = true;
-        this.vue.$nextTick(() => {
+        this.vue.$nextTick(async () => {
+            await this.serviceAwait(Class.RichTextEditPlusService);
+
             this.richTextEditPlusService.screen = "full";
             this.richTextEditPlusService.mode = "read";
             this.richTextEditPlusService.visible = true;
@@ -28,7 +30,9 @@ export class DemoTestService extends CommonService<DemoTestService> {
 
     public vditorDemo(): void {
         this._markdownEditPlusVisible = true;
-        this.vue.$nextTick(() => {
+        this.vue.$nextTick(async () => {
+            await this.serviceAwait(Class.MarkdownEditPlusService);
+
             this.markdownEditPlusService.screen = "full";
             this.markdownEditPlusService.mode = "read";
             this.markdownEditPlusService.visible = true;

@@ -19,6 +19,10 @@ export interface BaseService<U> {
 
     getService<T extends CommonService<any>>(clazz: Class | (new (vue: ComponentPublicInstance) => T), index?: number): T;
 
+    serviceAwait<T extends CommonService<any>>(clazz: Class | (new (vue: ComponentPublicInstance) => T), index?: number): void;
+
+    refAwait(name: string): void;
+
     getValue(name: string): any;
 
     getProp(name: string): any;
